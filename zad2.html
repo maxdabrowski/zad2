@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>zadanie 2</title>
+  </head>
+  <body>
+  <body>
+<p>Sprawdź swoje zamówienie!</p>
+<label>Wpisz swój napis:<input type="text" id="inscription" value="" placeholder="Witamy w PZU" /></label>
+<p id="napis">Twój napis to: <span id="result"></span> </p>
+<p> Za ten napis zapłacisz: <span id="score">0</span> zł </p>
+   </body>
+   <style>
+    body {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 20px;
+      color: rgb(65, 60, 60);
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    }
+    input {
+      margin: 3px;
+      padding: 7px;
+    }
+  </style>
+  <script>
+         const input = document.getElementById("inscription");
+         /*obsługa zdarzenia na wpisywanie poszczególnych znaków*/
+         input.addEventListener("keyup", function(){
+            const input = document.getElementById("inscription").value;
+            const result = document.getElementById("result");
+            const score = document.getElementById("score");
+            result.innerHTML = input;
+            const lettersTab = input.split("");
+            const whiteSings = [];
+            for(i=0; i<lettersTab.length; i++){
+                if(lettersTab[i] ==! " "){
+                    whiteSings.push(lettersTab[i]);          
+                }
+            }
+            score.innerHTML =  (lettersTab.length - whiteSings.length)*4.5
+         })
+  </script>
+</html>
